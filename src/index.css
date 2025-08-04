@@ -1,0 +1,436 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2563eb;
+  --primary-light: #e0e7ff;
+  --primary-border: #2563eb;
+  --success: #22c55e;
+  --success-bg: #f4faf6;
+  --success-border: #22c55e;
+  --warning: #fbbf24;
+  --warning-bg: #fdf8ea;
+  --warning-border: #fbbf24;
+  --danger: #ef4444;
+  --danger-bg: #fdf2f2;
+  --danger-border: #ef4444;
+  --gray-bg: #f3f4f6;
+  --gray-border: #e5e7eb;
+  --gray-light: #f8fafc;
+  --gray-dark: #374151;
+  --text-main: #222;
+  --text-muted: #6b7280;
+  --radius: 12px;
+  --card-shadow: 0 1px 4px rgba(9,30,66,.10);
+  --card-shadow-hover: 0 4px 12px rgba(9,30,66,.13);
+  --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--gray-bg);
+  font-family: var(--font-main);
+  color: var(--text-main);
+}
+
+.heading-main {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.heading-section {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-border);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.unit-select-minimal {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary-border);
+  padding: 0.7rem 1.1rem;
+  font-size: 1rem;
+  color: var(--text-main);
+  outline: none;
+  transition: border 0.2s;
+  min-width: 220px;
+}
+
+.unit-select-minimal:focus {
+  border-color: var(--primary);
+}
+
+/* Kanban Trello Style */
+.kanban-board-real {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  margin-top: 1.5rem;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.kanban-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+
+.kanban-col {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(9,30,66,.10);
+  padding: 1.1rem 0.7rem 1.2rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+  transition: background 0.2s;
+  border: 2px solid var(--gray-border);
+}
+
+.kanban-col.aprovado {
+  background: #fff;
+  border-color: var(--success-border);
+}
+.kanban-col.reprovado {
+  background: #fff;
+  border-color: var(--danger-border);
+}
+.kanban-col.esperando {
+  background: #fff;
+  border-color: var(--warning-border);
+}
+
+.kanban-col-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.7rem;
+  padding: 0.5em 0.2em 0.5em 0.1em;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--primary);
+  box-shadow: none;
+}
+.kanban-col-title.aprovado {
+  background: var(--success);
+  color: #fff;
+}
+.kanban-col-title.reprovado {
+  background: var(--danger);
+  color: #fff;
+}
+.kanban-col-title.esperando {
+  background: var(--warning);
+  color: #7c4700;
+}
+
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.card-minimal {
+  background: var(--gray-light);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.18s, border 0.18s;
+  padding: 0.85rem 0.9rem 0.7rem 0.9rem;
+  margin-bottom: 0;
+  border: 2px solid var(--gray-border);
+  cursor: pointer;
+  position: relative;
+}
+
+.card-minimal:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--primary-border);
+  background: #f1f5fd;
+}
+
+.card-minimal .card-author {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+.card-minimal .card-content {
+  color: #172b4d;
+  font-size: 1.01rem;
+  margin: 0.4rem 0 0.2rem 0;
+  min-height: 2.1em;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.card-minimal .card-footer {
+  border-top: none;
+  margin-top: 0.7rem;
+  padding-top: 0.2rem;
+  font-size: 0.91rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.kanban-etiqueta {
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.etiqueta-ia {
+  background: #e0e7ff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  border-radius: 6px;
+  font-size: 0.91rem;
+  font-weight: 700;
+  padding: 0.13em 0.7em;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.etiqueta-humano {
+  background: #edeff0;
+  color: #5e6c84;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.91rem;
+  font-weight: 700;
+  padding: 0.13em 0.7em;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 0.93rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.18em 0.8em;
+  margin-left: 0.5em;
+}
+.status-aprovado {
+  background: #e6f9ed;
+  color: #22c55e;
+  border: 1.5px solid #22c55e;
+}
+.status-reprovado {
+  background: #fdf2f2;
+  color: #ef4444;
+  border: 1.5px solid #ef4444;
+}
+.status-pendente, .status-esperando {
+  background: #fdf8ea;
+  color: #b45309;
+  border: 1.5px solid #fbbf24;
+}
+.status-undefined {
+  background: #e0e7ff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+}
+
+.filter-btn-minimal {
+  background: #e0e7ff;
+  border-radius: 999px;
+  border: 2px solid #2563eb;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #2563eb;
+  padding: 0.45em 1.1em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.filter-btn-minimal.active, .filter-btn-minimal:active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+/* NOVO MODAL ESTILO TRELLO FLAT */
+.modal-trello {
+  background: #fff;
+  border-radius: 18px;
+  padding: 0;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  border: none;
+  position: relative;
+  font-family: var(--font-main);
+}
+
+.modal-trello-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 2.1rem 2.1rem 1.2rem 2.1rem;
+  border-bottom: 1.5px solid var(--gray-border);
+}
+
+.modal-trello-header-icon {
+  background: #ffe066;
+  color: #fbbf24;
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.modal-trello-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-trello-header-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 0.1em;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.modal-trello-header-desc {
+  color: #6b7280;
+  font-size: 1.01rem;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+  line-height: 1.3;
+}
+
+.modal-trello-header-badges {
+  display: flex;
+  gap: 0.7em;
+  margin-top: 0.5em;
+}
+
+.badge-flat {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.97rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.22em 1.1em;
+  background: #fdf8ea;
+  color: #b45309;
+  border: 1.5px solid #fbbf24;
+}
+.badge-flat.status-aprovado {
+  background: #e6f9ed;
+  color: #22c55e;
+  border-color: #22c55e;
+}
+.badge-flat.status-reprovado {
+  background: #fdf2f2;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+.badge-flat.status-pendente {
+  background: #fdf8ea;
+  color: #b45309;
+  border-color: #fbbf24;
+}
+.badge-flat.status-undefined {
+  background: #e0e7ff;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+.badge-flat.urgencia {
+  background: #e0e7ff;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.modal-trello-content {
+  padding: 1.7rem 2.1rem 1.2rem 2.1rem;
+}
+
+.modal-trello-section {
+  margin-bottom: 1.3rem;
+}
+
+.modal-trello-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+.modal-trello-section-card {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-size: 1.01rem;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+  word-break: break-word;
+}
+
+.modal-trello-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.1rem 2.1rem 1.1rem 2.1rem;
+  border-top: 1.5px solid var(--gray-border);
+  background: #fff;
+  border-radius: 0 0 18px 18px;
+}
+
+.modal-trello-footer .btn {
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.6em 1.3em;
+  border: none;
+  outline: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  background: #6b7280;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .modal-trello-header,
+  .modal-trello-content,
+  .modal-trello-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
